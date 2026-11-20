@@ -79,12 +79,38 @@ blockquote { margin: 8px 0; padding: 10px 12px; border-left: 2px solid var(--gre
 .timeline li { border-left: 1px solid var(--border); padding-left: 10px; }
 .timeline small { display: block; }
 
+.top nav a.router-link-exact-active:not(.btn) { color: var(--green); }
+
+.dash { padding: 16px 24px; max-width: 1280px; margin: 0 auto; display: grid; gap: 16px; }
+.dash-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+.dash-head select { max-width: 200px; }
+.kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.kpi { display: grid; gap: 2px; padding: 14px 16px; }
+.kpi span { font-size: 12px; }
+.kpi strong { font-size: 26px; font-weight: 500; }
+.kpi small { font-size: 12px; }
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+.tbl { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 8px; }
+.tbl th { text-align: left; color: var(--muted); font-weight: 400; padding: 4px 6px; }
+.tbl td { padding: 6px; border-top: 1px solid var(--border); }
+.tbl th:nth-child(n+3), .tbl td:nth-child(n+3) { text-align: right; }
+.tbl .barcell { width: 40%; }
+.bar { height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--muted); border-radius: 4px; }
+.bar i.best { background: var(--green); }
+.bar i.warn { background: var(--amber); }
+td.warn { color: var(--amber); }
+.step { display: grid; gap: 4px; margin-bottom: 10px; font-size: 13px; }
+.step-row { display: flex; justify-content: space-between; }
+
 .narrow { max-width: 520px; margin: 24px auto; }
 .overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, .6); display: grid; place-items: center; padding: 16px; z-index: 10; }
 .overlay .card { width: min(420px, 100%); display: grid; gap: 12px; }
 
 @media (max-width: 900px) {
-  .grid { grid-template-columns: 1fr; }
+  .grid, .two { grid-template-columns: 1fr; }
+  .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .dash { padding: 12px 16px; }
   .top { padding: 12px 16px; flex-wrap: wrap; }
   .board-page, .detail { padding: 12px 16px; }
 }
