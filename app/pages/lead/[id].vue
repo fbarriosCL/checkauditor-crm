@@ -41,6 +41,8 @@ async function save(extra: Record<string, unknown> = {}) {
     email: l.email, phone: l.phone, stage: l.stage, owner_id: l.owner_id,
     icp: l.icp || null, deal_value_uf: l.deal_value_uf || null,
     next_action_at: l.next_action_at || null, notes: l.notes,
+    // Solo si la migración 007 ya agregó la columna (así el guardado no falla antes de aplicarla).
+    ...('expected_close_at' in l ? { expected_close_at: l.expected_close_at || null } : {}),
     ...extra,
   }).eq('id', id)
   saving.value = false
@@ -110,6 +112,7 @@ const nextLocal = computed({
         </label>
         <label>Valor (UF / mes)<input v-model.number="lead.deal_value_uf" type="number" min="0" step="0.5"></label>
         <label>Próxima acción<input v-model="nextLocal" type="datetime-local"></label>
+        <label v-if="'expected_close_at' in lead">Cierre estimado<input v-model="lead.expected_close_at" type="date"></label>
         <label>Notas<textarea v-model="lead.notes" rows="4" /></label>
         <div class="row">
           <span class="muted">{{ msg }}</span>
