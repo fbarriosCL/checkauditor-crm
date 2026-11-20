@@ -4,7 +4,7 @@ App interna (`crm.checkauditor.com`) para que el equipo vea los leads y los muev
 Nuxt 3 en modo SPA + Supabase (proyecto `ihtkakajwulpyxsonnph`). Sin costo: plan gratis de Supabase y Vercel.
 
 ## Pantallas
-- **/login**: entrada con enlace mágico al correo. Solo los 4 correos invitados (registro público cerrado).
+- **/login**: entrada con correo y contraseña. Solo los 4 usuarios creados en Supabase → Auth → Users (el enlace mágico se descartó: sin SMTP propio no se puede editar la plantilla y el enlace se gasta si el correo lo abre antes).
 - **/** (pipeline): kanban por etapa; arrastrar cambia la etapa, "Perdido" exige motivo. Filtros por canal y responsable, buscador, total UF por columna, tiempo real.
 - **/lead/:id**: datos, origen (canal, UTMs, IDs de clic), etapa, responsable, ICP, valor UF, próxima acción, notas, actividades e historial.
 - **/nuevo**: lead manual (referidos, correos, eventos).
