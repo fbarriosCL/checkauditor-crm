@@ -15,6 +15,7 @@ async function logout() {
       <NuxtLink to="/" class="brand"><i class="dot" />Check Auditor <span>CRM</span></NuxtLink>
       <nav>
         <NuxtLink to="/">Pipeline</NuxtLink>
+        <NuxtLink to="/dashboard">Dashboard</NuxtLink>
         <NuxtLink to="/nuevo" class="btn sm">+ Nuevo lead</NuxtLink>
         <span class="muted">{{ me?.full_name }}</span>
         <button class="link" @click="logout">Salir</button>
